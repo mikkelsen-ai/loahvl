@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { SITE_CONFIG } from '@/lib/config'
@@ -61,14 +62,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script
-          type="module"
-          src="https://w.behold.so/widget.js"
-        />
       </head>
       <body>
         {children}
         <Analytics />
+        <Script src="https://w.behold.so/widget.js" strategy="afterInteractive" />
       </body>
     </html>
   )
