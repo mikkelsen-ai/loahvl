@@ -66,7 +66,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <Analytics />
-        <Script src="https://w.behold.so/widget.js" strategy="afterInteractive" />
+        <Script
+          id="behold-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{const d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";d.head.append(s);})();`
+          }}
+        />
       </body>
     </html>
   )
