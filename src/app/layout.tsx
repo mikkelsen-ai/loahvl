@@ -61,6 +61,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="module"
+          src="https://w.behold.so/widget.js"
+        />
       </head>
       <body>
         {children}
